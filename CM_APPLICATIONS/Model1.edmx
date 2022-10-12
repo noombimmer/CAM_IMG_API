@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TAPP_TCOMMONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_APPLICATIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_APPLICATIONS">
+          <Key>
+            <PropertyRef Name="APP_CODE" />
+          </Key>
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="64" />
+          <Property Name="TITLE" Type="varchar" MaxLength="128" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="BASE_URL" Type="varchar" MaxLength="1024" />
+          <Property Name="LOGIN_URL" Type="varchar" MaxLength="1024" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_APPS_ATTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_APPS_ATTR">
+          <Key>
+            <PropertyRef Name="ATTR_CODE" />
+          </Key>
+          <Property Name="ATTR_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="ATTRTYPE_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="NAME" Type="varchar" MaxLength="64" />
+          <Property Name="TITLE" Type="varchar" MaxLength="128" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="VALUE" Type="varbinary(max)" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_APPS_FUNCTIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_APPS_FUNCTIONS">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="NAME" Type="varchar" MaxLength="64" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="FUNC_URL" Type="varchar" MaxLength="1024" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_APPS_ROLES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_APPS_ROLES">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="ROLE_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="NAME" Type="varchar" MaxLength="64" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="HOME_URL" Type="varchar" MaxLength="1024" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_ATTRTYPE_MSTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_ATTRTYPE_MSTR">
+          <Key>
+            <PropertyRef Name="ATTRTYPE_CODE" />
+          </Key>
+          <Property Name="ATTRTYPE_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="128" />
+          <Property Name="VALUETYPE_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_DOMAIN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_DOMAIN">
+          <Key>
+            <PropertyRef Name="DOMAIN_CODE" />
+            <PropertyRef Name="DOMAIN_DESC" />
+            <PropertyRef Name="DOMAIN_ACTIVE" />
+            <PropertyRef Name="FAC_CODE" />
+          </Key>
+          <Property Name="DOMAIN_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOMAIN_DESC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOMAIN_ACTIVE" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="FAC_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_DOMAIN_MSTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_DOMAIN_MSTR">
+          <Key>
+            <PropertyRef Name="DOMAIN_CODE" />
+          </Key>
+          <Property Name="DOMAIN_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="FACT_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_FACILITY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_FACILITY">
+          <Key>
+            <PropertyRef Name="FAC_CODE" />
+            <PropertyRef Name="FAC_DESC" />
+            <PropertyRef Name="FAC_ACTIVE" />
+          </Key>
+          <Property Name="FAC_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FAC_DESC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FAC_ACTIVE" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TAPP_TCOMMON.dbo.CM_LOGIN_HIST' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CM_LOGIN_HIST">
+          <Property Name="LOGSDT" Type="smalldatetime" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="AUTH_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="TOKEN" Type="varchar" MaxLength="64" />
+          <Property Name="STATUS_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="SESSION_EXP" Type="smalldatetime" />
+          <Property Name="LOGIN_STAT" Type="bit" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_NN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_NN">
+          <Key>
+            <PropertyRef Name="APP_CODE" />
+            <PropertyRef Name="PREFIX_CODE" />
+            <PropertyRef Name="DOMAIN_CODE" />
+            <PropertyRef Name="NEXTNUMBER" />
+          </Key>
+          <Property Name="APP_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="PREFIX_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NEXTNUMBER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="nchar" MaxLength="255" />
+          <Property Name="UPDATED_DATE" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_RBAC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_RBAC">
+          <Key>
+            <PropertyRef Name="RBAC_CODE" />
+          </Key>
+          <Property Name="RBAC_CODE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ROLE_CODE" Type="varchar" MaxLength="25" />
+          <Property Name="FUNC_CODE" Type="varchar" MaxLength="25" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="25" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_SITE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_SITE">
+          <Key>
+            <PropertyRef Name="SITE_CODE" />
+            <PropertyRef Name="SITE_DESC" />
+            <PropertyRef Name="SITE_ACTIVE" />
+            <PropertyRef Name="DOMAIN_CODE" />
+          </Key>
+          <Property Name="SITE_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SITE_DESC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SITE_ACTIVE" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_SITES_MSTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_SITES_MSTR">
+          <Key>
+            <PropertyRef Name="SITE_CODE" />
+          </Key>
+          <Property Name="SITE_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="DESC" Type="varchar" MaxLength="4000" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_USERS_AUTHORIZE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_USERS_AUTHORIZE">
+          <Key>
+            <PropertyRef Name="AUTH_CODE" />
+          </Key>
+          <Property Name="AUTH_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ROLE_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="APP_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="SITE_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="DOMAIN_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="FACT_CODE" Type="varchar" MaxLength="16" />
+          <Property Name="USERID" Type="varchar" MaxLength="64" />
+          <Property Name="FNAME" Type="varchar" MaxLength="1024" />
+          <Property Name="LNAME" Type="varchar" MaxLength="1024" />
+          <Property Name="ORG" Type="varchar" MaxLength="4000" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="CREATED_DATETIME" Type="smalldatetime" />
+          <Property Name="UPDATED_BY" Type="varchar" MaxLength="16" />
+          <Property Name="UPDATED_DATETIME" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TAPP_TCOMMON.dbo.CM_VALUETYPE_MSTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CM_VALUETYPE_MSTR">
+          <Key>
+            <PropertyRef Name="VALUETYPE_CODE" />
+          </Key>
+          <Property Name="VALUETYPE_CODE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="128" />
+          <Property Name="ACT" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="TAPP_TCOMMONModelStoreContainer">
+          <EntitySet Name="CM_APPLICATIONS" EntityType="Self.CM_APPLICATIONS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_APPLICATIONS].[APP_CODE] AS [APP_CODE], 
+    [CM_APPLICATIONS].[NAME] AS [NAME], 
+    [CM_APPLICATIONS].[TITLE] AS [TITLE], 
+    [CM_APPLICATIONS].[DESC] AS [DESC], 
+    [CM_APPLICATIONS].[ACTIVE] AS [ACTIVE], 
+    [CM_APPLICATIONS].[BASE_URL] AS [BASE_URL], 
+    [CM_APPLICATIONS].[LOGIN_URL] AS [LOGIN_URL], 
+    [CM_APPLICATIONS].[CREATED_BY] AS [CREATED_BY], 
+    [CM_APPLICATIONS].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_APPLICATIONS].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_APPLICATIONS].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_APPLICATIONS] AS [CM_APPLICATIONS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_APPS_ATTR" EntityType="Self.CM_APPS_ATTR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_APPS_ATTR].[ATTR_CODE] AS [ATTR_CODE], 
+    [CM_APPS_ATTR].[APP_CODE] AS [APP_CODE], 
+    [CM_APPS_ATTR].[ATTRTYPE_CODE] AS [ATTRTYPE_CODE], 
+    [CM_APPS_ATTR].[NAME] AS [NAME], 
+    [CM_APPS_ATTR].[TITLE] AS [TITLE], 
+    [CM_APPS_ATTR].[DESC] AS [DESC], 
+    [CM_APPS_ATTR].[VALUE] AS [VALUE], 
+    [CM_APPS_ATTR].[ACTIVE] AS [ACTIVE], 
+    [CM_APPS_ATTR].[CREATED_BY] AS [CREATED_BY], 
+    [CM_APPS_ATTR].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_APPS_ATTR].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_APPS_ATTR].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_APPS_ATTR] AS [CM_APPS_ATTR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_APPS_FUNCTIONS" EntityType="Self.CM_APPS_FUNCTIONS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_APPS_FUNCTIONS].[FUNC_CODE] AS [FUNC_CODE], 
+    [CM_APPS_FUNCTIONS].[APP_CODE] AS [APP_CODE], 
+    [CM_APPS_FUNCTIONS].[NAME] AS [NAME], 
+    [CM_APPS_FUNCTIONS].[DESC] AS [DESC], 
+    [CM_APPS_FUNCTIONS].[FUNC_URL] AS [FUNC_URL], 
+    [CM_APPS_FUNCTIONS].[ACTIVE] AS [ACTIVE], 
+    [CM_APPS_FUNCTIONS].[CREATED_BY] AS [CREATED_BY], 
+    [CM_APPS_FUNCTIONS].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_APPS_FUNCTIONS].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_APPS_FUNCTIONS].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_APPS_FUNCTIONS] AS [CM_APPS_FUNCTIONS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_APPS_ROLES" EntityType="Self.CM_APPS_ROLES" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_APPS_ROLES].[ROLE_CODE] AS [ROLE_CODE], 
+    [CM_APPS_ROLES].[APP_CODE] AS [APP_CODE], 
+    [CM_APPS_ROLES].[NAME] AS [NAME], 
+    [CM_APPS_ROLES].[DESC] AS [DESC], 
+    [CM_APPS_ROLES].[HOME_URL] AS [HOME_URL], 
+    [CM_APPS_ROLES].[ACTIVE] AS [ACTIVE], 
+    [CM_APPS_ROLES].[CREATED_BY] AS [CREATED_BY], 
+    [CM_APPS_ROLES].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_APPS_ROLES].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_APPS_ROLES].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_APPS_ROLES] AS [CM_APPS_ROLES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_ATTRTYPE_MSTR" EntityType="Self.CM_ATTRTYPE_MSTR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_ATTRTYPE_MSTR].[ATTRTYPE_CODE] AS [ATTRTYPE_CODE], 
+    [CM_ATTRTYPE_MSTR].[TITLE] AS [TITLE], 
+    [CM_ATTRTYPE_MSTR].[VALUETYPE_CODE] AS [VALUETYPE_CODE], 
+    [CM_ATTRTYPE_MSTR].[ACTIVE] AS [ACTIVE]
+    FROM [dbo].[CM_ATTRTYPE_MSTR] AS [CM_ATTRTYPE_MSTR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_DOMAIN" EntityType="Self.CM_DOMAIN" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_DOMAIN].[DOMAIN_CODE] AS [DOMAIN_CODE], 
+    [CM_DOMAIN].[DOMAIN_DESC] AS [DOMAIN_DESC], 
+    [CM_DOMAIN].[DOMAIN_ACTIVE] AS [DOMAIN_ACTIVE], 
+    [CM_DOMAIN].[FAC_CODE] AS [FAC_CODE]
+    FROM [dbo].[CM_DOMAIN] AS [CM_DOMAIN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_DOMAIN_MSTR" EntityType="Self.CM_DOMAIN_MSTR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_DOMAIN_MSTR].[DOMAIN_CODE] AS [DOMAIN_CODE], 
+    [CM_DOMAIN_MSTR].[FACT_CODE] AS [FACT_CODE], 
+    [CM_DOMAIN_MSTR].[DESC] AS [DESC], 
+    [CM_DOMAIN_MSTR].[ACTIVE] AS [ACTIVE]
+    FROM [dbo].[CM_DOMAIN_MSTR] AS [CM_DOMAIN_MSTR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_FACILITY" EntityType="Self.CM_FACILITY" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_FACILITY].[FAC_CODE] AS [FAC_CODE], 
+    [CM_FACILITY].[FAC_DESC] AS [FAC_DESC], 
+    [CM_FACILITY].[FAC_ACTIVE] AS [FAC_ACTIVE]
+    FROM [dbo].[CM_FACILITY] AS [CM_FACILITY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_NN" EntityType="Self.CM_NN" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_NN].[APP_CODE] AS [APP_CODE], 
+    [CM_NN].[PREFIX_CODE] AS [PREFIX_CODE], 
+    [CM_NN].[DOMAIN_CODE] AS [DOMAIN_CODE], 
+    [CM_NN].[NEXTNUMBER] AS [NEXTNUMBER], 
+    [CM_NN].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_NN].[UPDATED_DATE] AS [UPDATED_DATE]
+    FROM [dbo].[CM_NN] AS [CM_NN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_RBAC" EntityType="Self.CM_RBAC" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_RBAC].[RBAC_CODE] AS [RBAC_CODE], 
+    [CM_RBAC].[ROLE_CODE] AS [ROLE_CODE], 
+    [CM_RBAC].[FUNC_CODE] AS [FUNC_CODE], 
+    [CM_RBAC].[APP_CODE] AS [APP_CODE], 
+    [CM_RBAC].[ACTIVE] AS [ACTIVE], 
+    [CM_RBAC].[CREATED_BY] AS [CREATED_BY], 
+    [CM_RBAC].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_RBAC].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_RBAC].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_RBAC] AS [CM_RBAC]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_SITE" EntityType="Self.CM_SITE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_SITE].[SITE_CODE] AS [SITE_CODE], 
+    [CM_SITE].[SITE_DESC] AS [SITE_DESC], 
+    [CM_SITE].[SITE_ACTIVE] AS [SITE_ACTIVE], 
+    [CM_SITE].[DOMAIN_CODE] AS [DOMAIN_CODE]
+    FROM [dbo].[CM_SITE] AS [CM_SITE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_SITES_MSTR" EntityType="Self.CM_SITES_MSTR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_SITES_MSTR].[SITE_CODE] AS [SITE_CODE], 
+    [CM_SITES_MSTR].[DOMAIN_CODE] AS [DOMAIN_CODE], 
+    [CM_SITES_MSTR].[DESC] AS [DESC], 
+    [CM_SITES_MSTR].[ACTIVE] AS [ACTIVE]
+    FROM [dbo].[CM_SITES_MSTR] AS [CM_SITES_MSTR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_USERS_AUTHORIZE" EntityType="Self.CM_USERS_AUTHORIZE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_USERS_AUTHORIZE].[AUTH_CODE] AS [AUTH_CODE], 
+    [CM_USERS_AUTHORIZE].[ROLE_CODE] AS [ROLE_CODE], 
+    [CM_USERS_AUTHORIZE].[APP_CODE] AS [APP_CODE], 
+    [CM_USERS_AUTHORIZE].[SITE_CODE] AS [SITE_CODE], 
+    [CM_USERS_AUTHORIZE].[DOMAIN_CODE] AS [DOMAIN_CODE], 
+    [CM_USERS_AUTHORIZE].[FACT_CODE] AS [FACT_CODE], 
+    [CM_USERS_AUTHORIZE].[USERID] AS [USERID], 
+    [CM_USERS_AUTHORIZE].[FNAME] AS [FNAME], 
+    [CM_USERS_AUTHORIZE].[LNAME] AS [LNAME], 
+    [CM_USERS_AUTHORIZE].[ORG] AS [ORG], 
+    [CM_USERS_AUTHORIZE].[ACTIVE] AS [ACTIVE], 
+    [CM_USERS_AUTHORIZE].[CREATED_BY] AS [CREATED_BY], 
+    [CM_USERS_AUTHORIZE].[CREATED_DATETIME] AS [CREATED_DATETIME], 
+    [CM_USERS_AUTHORIZE].[UPDATED_BY] AS [UPDATED_BY], 
+    [CM_USERS_AUTHORIZE].[UPDATED_DATETIME] AS [UPDATED_DATETIME]
+    FROM [dbo].[CM_USERS_AUTHORIZE] AS [CM_USERS_AUTHORIZE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CM_VALUETYPE_MSTR" EntityType="Self.CM_VALUETYPE_MSTR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CM_VALUETYPE_MSTR].[VALUETYPE_CODE] AS [VALUETYPE_CODE], 
+    [CM_VALUETYPE_MSTR].[TITLE] AS [TITLE], 
+    [CM_VALUETYPE_MSTR].[ACT] AS [ACT]
+    FROM [dbo].[CM_VALUETYPE_MSTR] AS [CM_VALUETYPE_MSTR]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TAPP_TCOMMONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CM_APPLICATIONS">
+          <Key>
+            <PropertyRef Name="APP_CODE" />
+          </Key>
+          <Property Name="APP_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="BASE_URL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="LOGIN_URL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_APPS_ATTR">
+          <Key>
+            <PropertyRef Name="ATTR_CODE" />
+          </Key>
+          <Property Name="ATTR_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APP_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRTYPE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="VALUE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_APPS_FUNCTIONS">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APP_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FUNC_URL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_APPS_ROLES">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="ROLE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APP_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HOME_URL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_ATTRTYPE_MSTR">
+          <Key>
+            <PropertyRef Name="ATTRTYPE_CODE" />
+          </Key>
+          <Property Name="ATTRTYPE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="VALUETYPE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CM_DOMAIN">
+          <Key>
+            <PropertyRef Name="DOMAIN_CODE" />
+            <PropertyRef Name="DOMAIN_DESC" />
+            <PropertyRef Name="DOMAIN_ACTIVE" />
+            <PropertyRef Name="FAC_CODE" />
+          </Key>
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DOMAIN_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOMAIN_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FAC_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CM_DOMAIN_MSTR">
+          <Key>
+            <PropertyRef Name="DOMAIN_CODE" />
+          </Key>
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FACT_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CM_FACILITY">
+          <Key>
+            <PropertyRef Name="FAC_CODE" />
+            <PropertyRef Name="FAC_DESC" />
+            <PropertyRef Name="FAC_ACTIVE" />
+          </Key>
+          <Property Name="FAC_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FAC_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FAC_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CM_NN">
+          <Key>
+            <PropertyRef Name="APP_CODE" />
+            <PropertyRef Name="PREFIX_CODE" />
+            <PropertyRef Name="DOMAIN_CODE" />
+            <PropertyRef Name="NEXTNUMBER" />
+          </Key>
+          <Property Name="APP_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PREFIX_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NEXTNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_RBAC">
+          <Key>
+            <PropertyRef Name="RBAC_CODE" />
+          </Key>
+          <Property Name="RBAC_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLE_CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FUNC_CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="APP_CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_SITE">
+          <Key>
+            <PropertyRef Name="SITE_CODE" />
+            <PropertyRef Name="SITE_DESC" />
+            <PropertyRef Name="SITE_ACTIVE" />
+            <PropertyRef Name="DOMAIN_CODE" />
+          </Key>
+          <Property Name="SITE_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SITE_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SITE_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CM_SITES_MSTR">
+          <Key>
+            <PropertyRef Name="SITE_CODE" />
+          </Key>
+          <Property Name="SITE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CM_USERS_AUTHORIZE">
+          <Key>
+            <PropertyRef Name="AUTH_CODE" />
+          </Key>
+          <Property Name="AUTH_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="APP_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="SITE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="DOMAIN_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="FACT_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="FNAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="LNAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ORG" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATETIME" Type="DateTime" Precision="0" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CM_VALUETYPE_MSTR">
+          <Key>
+            <PropertyRef Name="VALUETYPE_CODE" />
+          </Key>
+          <Property Name="VALUETYPE_CODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ACT" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="TAPP_TCOMMONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CM_APPLICATIONS" EntityType="Self.CM_APPLICATIONS" />
+          <EntitySet Name="CM_APPS_ATTR" EntityType="Self.CM_APPS_ATTR" />
+          <EntitySet Name="CM_APPS_FUNCTIONS" EntityType="Self.CM_APPS_FUNCTIONS" />
+          <EntitySet Name="CM_APPS_ROLES" EntityType="Self.CM_APPS_ROLES" />
+          <EntitySet Name="CM_ATTRTYPE_MSTR" EntityType="Self.CM_ATTRTYPE_MSTR" />
+          <EntitySet Name="CM_DOMAIN" EntityType="Self.CM_DOMAIN" />
+          <EntitySet Name="CM_DOMAIN_MSTR" EntityType="Self.CM_DOMAIN_MSTR" />
+          <EntitySet Name="CM_FACILITY" EntityType="Self.CM_FACILITY" />
+          <EntitySet Name="CM_NN" EntityType="Self.CM_NN" />
+          <EntitySet Name="CM_RBAC" EntityType="Self.CM_RBAC" />
+          <EntitySet Name="CM_SITE" EntityType="Self.CM_SITE" />
+          <EntitySet Name="CM_SITES_MSTR" EntityType="Self.CM_SITES_MSTR" />
+          <EntitySet Name="CM_USERS_AUTHORIZE" EntityType="Self.CM_USERS_AUTHORIZE" />
+          <EntitySet Name="CM_VALUETYPE_MSTR" EntityType="Self.CM_VALUETYPE_MSTR" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TAPP_TCOMMONModelStoreContainer" CdmEntityContainer="TAPP_TCOMMONEntities">
+          <EntitySetMapping Name="CM_APPLICATIONS">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_APPLICATIONS">
+              <MappingFragment StoreEntitySet="CM_APPLICATIONS">
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="BASE_URL" ColumnName="BASE_URL" />
+                <ScalarProperty Name="LOGIN_URL" ColumnName="LOGIN_URL" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_APPS_ATTR">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_APPS_ATTR">
+              <MappingFragment StoreEntitySet="CM_APPS_ATTR">
+                <ScalarProperty Name="ATTR_CODE" ColumnName="ATTR_CODE" />
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="ATTRTYPE_CODE" ColumnName="ATTRTYPE_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_APPS_FUNCTIONS">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_APPS_FUNCTIONS">
+              <MappingFragment StoreEntitySet="CM_APPS_FUNCTIONS">
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="FUNC_URL" ColumnName="FUNC_URL" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_APPS_ROLES">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_APPS_ROLES">
+              <MappingFragment StoreEntitySet="CM_APPS_ROLES">
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="HOME_URL" ColumnName="HOME_URL" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_ATTRTYPE_MSTR">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_ATTRTYPE_MSTR">
+              <MappingFragment StoreEntitySet="CM_ATTRTYPE_MSTR">
+                <ScalarProperty Name="ATTRTYPE_CODE" ColumnName="ATTRTYPE_CODE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="VALUETYPE_CODE" ColumnName="VALUETYPE_CODE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_DOMAIN">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_DOMAIN">
+              <MappingFragment StoreEntitySet="CM_DOMAIN">
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+                <ScalarProperty Name="DOMAIN_DESC" ColumnName="DOMAIN_DESC" />
+                <ScalarProperty Name="DOMAIN_ACTIVE" ColumnName="DOMAIN_ACTIVE" />
+                <ScalarProperty Name="FAC_CODE" ColumnName="FAC_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_DOMAIN_MSTR">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_DOMAIN_MSTR">
+              <MappingFragment StoreEntitySet="CM_DOMAIN_MSTR">
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+                <ScalarProperty Name="FACT_CODE" ColumnName="FACT_CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_FACILITY">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_FACILITY">
+              <MappingFragment StoreEntitySet="CM_FACILITY">
+                <ScalarProperty Name="FAC_CODE" ColumnName="FAC_CODE" />
+                <ScalarProperty Name="FAC_DESC" ColumnName="FAC_DESC" />
+                <ScalarProperty Name="FAC_ACTIVE" ColumnName="FAC_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_NN">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_NN">
+              <MappingFragment StoreEntitySet="CM_NN">
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="PREFIX_CODE" ColumnName="PREFIX_CODE" />
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+                <ScalarProperty Name="NEXTNUMBER" ColumnName="NEXTNUMBER" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_RBAC">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_RBAC">
+              <MappingFragment StoreEntitySet="CM_RBAC">
+                <ScalarProperty Name="RBAC_CODE" ColumnName="RBAC_CODE" />
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_SITE">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_SITE">
+              <MappingFragment StoreEntitySet="CM_SITE">
+                <ScalarProperty Name="SITE_CODE" ColumnName="SITE_CODE" />
+                <ScalarProperty Name="SITE_DESC" ColumnName="SITE_DESC" />
+                <ScalarProperty Name="SITE_ACTIVE" ColumnName="SITE_ACTIVE" />
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_SITES_MSTR">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_SITES_MSTR">
+              <MappingFragment StoreEntitySet="CM_SITES_MSTR">
+                <ScalarProperty Name="SITE_CODE" ColumnName="SITE_CODE" />
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_USERS_AUTHORIZE">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_USERS_AUTHORIZE">
+              <MappingFragment StoreEntitySet="CM_USERS_AUTHORIZE">
+                <ScalarProperty Name="AUTH_CODE" ColumnName="AUTH_CODE" />
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+                <ScalarProperty Name="APP_CODE" ColumnName="APP_CODE" />
+                <ScalarProperty Name="SITE_CODE" ColumnName="SITE_CODE" />
+                <ScalarProperty Name="DOMAIN_CODE" ColumnName="DOMAIN_CODE" />
+                <ScalarProperty Name="FACT_CODE" ColumnName="FACT_CODE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+                <ScalarProperty Name="ORG" ColumnName="ORG" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_VALUETYPE_MSTR">
+            <EntityTypeMapping TypeName="TAPP_TCOMMONModel.CM_VALUETYPE_MSTR">
+              <MappingFragment StoreEntitySet="CM_VALUETYPE_MSTR">
+                <ScalarProperty Name="VALUETYPE_CODE" ColumnName="VALUETYPE_CODE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ACT" ColumnName="ACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
