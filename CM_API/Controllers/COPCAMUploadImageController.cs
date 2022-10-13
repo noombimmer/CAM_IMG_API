@@ -4,11 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
+using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 
 namespace CAPIs.Controllers
 {
-    public class COPCAMUploadImageController : Controller
+    public class COPCAMUploadImageController : ApiController
     {
         // GET: COPCAMUploadImage
         [HttpPost]
@@ -26,11 +28,11 @@ namespace CAPIs.Controllers
                         string yearPath = dt.ToString("yyyy");
                         string monthPath = dt.ToString("MMMM");
                         string datePath =  dt.ToString("yyyyMMdd");
-                        string pathRepo = Path.Combine(Server.MapPath("~/UploadedFiles"), "OTHERS", yearPath, monthPath, datePath);
+                        string pathRepo = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "OTHERS", yearPath, monthPath, datePath);
                         bool exists = System.IO.Directory.Exists(pathRepo);
                         if (!exists)
                             System.IO.Directory.CreateDirectory(pathRepo);
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), "OTHERS", yearPath, monthPath, datePath, Path.GetFileName(image.FileName));
+                        string path = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "OTHERS", yearPath, monthPath, datePath, Path.GetFileName(image.FileName));
                         //string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(image.FileName));
                         image.SaveAs(path);
                         //ViewBag.FileStatus = "File uploaded successfully.";
@@ -54,6 +56,7 @@ namespace CAPIs.Controllers
             }
             return rowData;
         }
+
         [HttpPost]
         public async Task<JsonResult> PostFileR16(HttpPostedFileBase image,string R16NO)
         {
@@ -69,19 +72,19 @@ namespace CAPIs.Controllers
                         string yearPath = dt.ToString("yyyy");
                         string monthPath = dt.ToString("MMMM");
                         string COPR16NO = R16NO;
-                        string pathRepo = Path.Combine(Server.MapPath("~/UploadedFiles"), "COPR16",yearPath, monthPath, COPR16NO);
+                        string pathRepo = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "COPR16",yearPath, monthPath, COPR16NO);
                         bool exists = System.IO.Directory.Exists(pathRepo);
                         if (!exists)
                             System.IO.Directory.CreateDirectory(pathRepo);
                         
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), "COPR16",yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName));
+                        string path = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "COPR16",yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName));
                         if (!System.IO.Directory.Exists(path))
                         {
                             image.SaveAs(path);
                         }
                         else
                         {
-                            path = Path.Combine(Server.MapPath("~/UploadedFiles"), "COPR16", yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName + "_" + dt.ToString("yyyyMMddmmhhss")));
+                            path = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "COPR16", yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName + "_" + dt.ToString("yyyyMMddmmhhss")));
                             image.SaveAs(path);
                         }
                             
@@ -120,11 +123,11 @@ namespace CAPIs.Controllers
                         string yearPath = dt.ToString("yyyy");
                         string monthPath = dt.ToString("MMMM");
                         string COPR16NO = LATNO;
-                        string pathRepo = Path.Combine(Server.MapPath("~/UploadedFiles"), "COPLAT",yearPath, monthPath, COPR16NO);
+                        string pathRepo = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "COPLAT",yearPath, monthPath, COPR16NO);
                         bool exists = System.IO.Directory.Exists(pathRepo);
                         if (!exists)
                             System.IO.Directory.CreateDirectory(pathRepo);
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), "COPLAT", yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName));
+                        string path = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), "COPLAT", yearPath, monthPath, COPR16NO, Path.GetFileName(image.FileName));
                         image.SaveAs(path);
                         rowData.Data = new { FileStatus = "OK", filePath = image.FileName, ErrorMessage = "" };
                     }
@@ -154,16 +157,16 @@ namespace CAPIs.Controllers
 
             if (FILE_IMAGE.ContentLength > 0)
             {
-                string rootPath = Server.MapPath("~/UploadedFiles");
+                string rootPath = HttpContext.Current.Server.MapPath("~/UploadedFiles");
 
                 //string subPath = UID + "/" + hidden_cOPR16_FILE_IMPORT_FSIM_SEQDT;
-                bool exists = System.IO.Directory.Exists(Server.MapPath(rootPath + "/" ));
+                bool exists = System.IO.Directory.Exists(HttpContext.Current.Server.MapPath(rootPath + "/" ));
                 if (!exists)
-                    System.IO.Directory.CreateDirectory(Server.MapPath(rootPath + "/" ));
+                    System.IO.Directory.CreateDirectory(HttpContext.Current.Server.MapPath(rootPath + "/" ));
 
                 var fileName = Path.GetFileName(FILE_IMAGE.FileName);
 
-                var path = Path.Combine(Server.MapPath(rootPath + "/" ), fileName);
+                var path = Path.Combine(HttpContext.Current.Server.MapPath(rootPath + "/" ), fileName);
                 /*
                 if (System.IO.File.Exists(path))
                 {

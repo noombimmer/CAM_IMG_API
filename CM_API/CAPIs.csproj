@@ -263,81 +263,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="CM_APPLICATIONS.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_APPS_ATTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_APPS_FUNCTIONS.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_APPS_ROLES.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_ATTRTYPE_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_DOMAIN.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_DOMAIN_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_FACILITY.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_NN.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_RBAC.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_SITE.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_SITES_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_USERS_AUTHORIZE.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CM_VALUETYPE_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CAPI2Controller.cs" />
     <Compile Include="Controllers\CAPIController.cs" />
     <Compile Include="Controllers\COPCAMUploadImageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QAD_AD_MSTRController.cs" />
-    <Compile Include="Controllers\QAD_APIController.cs" />
-    <Compile Include="Controllers\QAD_BUSINESSRELATIONController.cs" />
-    <Compile Include="Controllers\QAD_CM_MSTRController.cs" />
-    <Compile Include="Controllers\QAD_CODE_MSTRController.cs" />
-    <Compile Include="Controllers\QAD_CREDITORController.cs" />
-    <Compile Include="Controllers\QAD_DEBTORController.cs" />
-    <Compile Include="Controllers\QAD_FAD_DETController.cs" />
-    <Compile Include="Controllers\QAD_FIXEDASSETLOCController.cs" />
-    <Compile Include="Controllers\QAD_FIXEDASSETMASTERController.cs" />
-    <Compile Include="Controllers\QAD_GLController.cs" />
-    <Compile Include="Controllers\QAD_INVENTORYLOCMASTERController.cs" />
-    <Compile Include="Controllers\QAD_ITEMCOSTController.cs" />
-    <Compile Include="Controllers\QAD_ITEMMASTERController.cs" />
-    <Compile Include="Controllers\QAD_ITEMNUMBERController.cs" />
-    <Compile Include="Controllers\QAD_ITEMPACKAGINGController.cs" />
-    <Compile Include="Controllers\QAD_ITEMPLANNINGController.cs" />
-    <Compile Include="Controllers\QAD_REASONCODEMASTERController.cs" />
-    <Compile Include="Controllers\QAD_RTController.cs" />
-    <Compile Include="Controllers\QAD_SAFCONCEPTController.cs" />
-    <Compile Include="Controllers\QAD_SAFController.cs" />
-    <Compile Include="Controllers\QAD_SAFSTRUCTUREController.cs" />
-    <Compile Include="Controllers\QAD_SAFSTRUCTURELINEController.cs" />
-    <Compile Include="Controllers\QAD_SAFSTRUCTURELINKController.cs" />
-    <Compile Include="Controllers\QAD_SIOP_ADM_DETController.cs" />
-    <Compile Include="Controllers\QAD_SIOP_AMD_DETController.cs" />
-    <Compile Include="Controllers\QAD_SIOP_AMK_DETController.cs" />
-    <Compile Include="Controllers\QAD_SIOP_AVS_DETController.cs" />
-    <Compile Include="Controllers\QAD_VDMASTERController.cs" />
     <Compile Include="Controllers\RAPI2Controller.cs" />
     <Compile Include="Controllers\RAPIController.cs" />
     <Compile Include="Global.asax.cs">
@@ -347,153 +276,6 @@
     <Compile Include="Models\AppPropModel.cs" />
     <Compile Include="Models\JsonExtractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QAD_AD_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_BUSINESSRELATION.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CM_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CODE_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CREDITOR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CustomerItem.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CustomerShipTo.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_CustomerView.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_DEBTOR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_FAD_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_FIXEDASSETLOC.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_FIXEDASSETMASTER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_GL.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_HFMCustomerShipTo.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_INVENTORYLOCMASTER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ITEMCOST.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ItemCost_STG.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ITEMMASTER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ITEMNUMBER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ITEMPACKAGING.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ITEMPLANNING.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ItemReplacement.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_LS_CustomerShipTo.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_LS_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_PC_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ProductionLineDetail.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ProjectCode.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_PTRE_MSTR.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_REASONCODEMASTER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SAF.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SAFCONCEPT.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SAFSTRUCTURE.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SAFSTRUCTURELINE.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SAFSTRUCTURELINK.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SCHD_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SIOP_ADM_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SIOP_AMD_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SIOP_AMK.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SIOP_AMK_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SIOP_AVS_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_SupplierView.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_UM.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_VDMASTER.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QAD_ZKBUD_DET.cs">
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TAPP_TCOMMON.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TAPP_TCOMMON.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TAPP_TCOMMON.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TAPP_TCOMMON.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TAPP_TCOMMON.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TAPP_TCOMMON.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -978,29 +760,6 @@
     <Content Include="Content\fontawesome-webfont.woff2" />
     <Content Include="Content\Sorting icons.psd" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
-    <EntityDeploy Include="TAPP_TCOMMON.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TAPP_TCOMMON.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="TAPP_TCOMMON.edmx.diagram">
-      <DependentUpon>TAPP_TCOMMON.edmx</DependentUpon>
-    </Content>
-    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\FileSaver.js" />
     <Content Include="Scripts\html2canvas.js" />
@@ -1049,16 +808,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="TAPP_TCOMMON.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TAPP_TCOMMON.edmx</DependentUpon>
-      <LastGenOutput>TAPP_TCOMMON.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="TAPP_TCOMMON.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TAPP_TCOMMON.edmx</DependentUpon>
-      <LastGenOutput>TAPP_TCOMMON.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1082,8 +831,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
